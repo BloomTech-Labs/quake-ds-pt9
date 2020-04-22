@@ -1,0 +1,7 @@
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+geopandas
+numpy
+pandas
+scikit-learn
