@@ -84,6 +84,15 @@ Python, flask, tensorflow, pandas, scikit-learn, numpy, geopandas, leaflet
 
 🚫 List directions on how to connect to the API here
 
+### How to Reproduce locally
+
+Run the following commands to install all necessary packages:
+
+```
+conda create --name quake python==3.7
+conda activate quake
+conda install -c conda-forge --file requirements.txt
+```
 ## Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
