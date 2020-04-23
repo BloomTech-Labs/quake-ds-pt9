@@ -1,5 +1,6 @@
 from decouple import config
 from flask import Flask, render_template, request
+from functions import latlong_finder
 
 
 def create_app():
