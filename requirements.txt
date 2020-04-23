@@ -1,7 +1,9 @@
 Flask
 Flask-Migrate
 Flask-SQLAlchemy
+folium
 geopandas
 numpy
 pandas
+python-decouple
 scikit-learn
