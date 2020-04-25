@@ -2,6 +2,7 @@ Flask
 Flask-Migrate
 Flask-SQLAlchemy
 folium
+geocoder
 geopandas
 numpy
 pandas
