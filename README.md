@@ -12,7 +12,7 @@ You can find the project at [🚫URL NAME GOES HERE](🚫copy and paste URL here
 
 🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
 
-|                                       [Student 1](https://github.com/)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/lechemrc)                                        |                                       [Jerimiah Willhite](https://github.com/razzlestorm)                                                                               |
+|                                       [Tally Wiesenberg](https://github.com/tallywiesenberg)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/lechemrc)                                        |                                       [Jerimiah Willhite](https://github.com/razzlestorm)                                                                               |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
 |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/37545969?s=400&u=c6b3b2110b672bd025f071825b38090d4a3eae08&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/32030231?s=460&u=79b4a80f17718ff4802beffa14816964ebe6ce86&v=4" width = "200" />](https://github.com/)                       
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
@@ -34,13 +34,13 @@ You can find the project at [🚫URL NAME GOES HERE](🚫copy and paste URL here
 
 1️⃣ [Trello Board](https://trello.com/b/Ja41ROfX/quake)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+1️⃣ [Product Canvas](https://www.notion.so/Vision-Problem-Objectives-2a47f1d8f3e54b2db4d4c119c3e3b5fe)
 
 🚫 Replace lorem ipsum with a description of your project
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Earthquake data is spread out on the internet and finding up-to-date data on your location involves sifting through complicated user interfaces and technical jargon. Personal safety and earthquake/emergency resources shouldn't be this hard to find. Knowledge about earthquakes also should also be more available, so people can manage their risk appropriately.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Epicentral intends to centralize Earthquake data on an accessible, easy-to-understand platform. The center of the project is a live map that reports the magnitude of recent earthquakes. Later iterations will include SMS notifications of earthquakes and predictions of aftershocks.
 
 🚫  delete if front end is not applicable to your project
 
@@ -48,7 +48,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ### Tech Stack
 
-🚫 List all of the languages, frameworks, services, etc. used here.
+Python, flask, tensorflow, pandas, scikit-learn, numpy, geopandas, leaflet
 
 ### 2️⃣ Predictions
 
@@ -66,10 +66,10 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 🚫  Add to or delete source links as needed for your project
 
 
--   [Source 1] (🚫add link to python notebook here)
--   [Source 2] (🚫add link to python notebook here)
--   [Source 3] (🚫add link to python notebook here)
--   [Source 4] (🚫add link to python notebook here)
+-   [USGS Geojson](https://earthquake.usgs.gov/earthquakes/feed/v1.0/)
+-   [USGS Centennial Report](https://earthquake.usgs.gov/data/centennial/)
+-   [LibComCat] (https://github.com/usgs/libcomcat/)
+-   [Folium] (https://python-visualization.github.io/folium/)
 -   [Source 5] (🚫add link to python notebook here)
 
 ### Python Notebooks
@@ -90,6 +90,15 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 🚫 List directions on how to connect to the API here
 
+### How to Reproduce locally
+
+Run the following commands to install all necessary packages:
+
+```
+conda create --name quake python==3.7
+conda activate quake
+conda install -c conda-forge --file requirements.txt
+```
 ## Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
