@@ -1,4 +1,3 @@
-
 from bs4 import BeautifulSoup
 from googlesearch import search
 import pgeocode
@@ -19,11 +18,11 @@ def latlong_finder(country, postalcode):
     except ValueError:
         message = 'Your country input did not match any supported country.\nPlease try again!'
 
-     latlong = []
-     latlong.append(place.query_postal_code(f'{postalcode}')['latitude'])
-     latlong.append(place.query_postal_code(f'{postalcode}')['longitude'])
+    latlong = []
+    latlong.append(place.query_postal_code(f'{postalcode}')['latitude'])
+    latlong.append(place.query_postal_code(f'{postalcode}')['longitude'])
 
-     return latlong
+    return latlong
 
 # This is still a work in progress
 def find_emergency_site(postalcode):
