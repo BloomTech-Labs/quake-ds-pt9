@@ -1,11 +1,13 @@
 from decouple import config
-from flask import Flask, render_template, request
+from flask import Flask, render_template,
+from .models import DB
 
 
 def create_app():
     """Create and configure an instance of the Flask application"""
     app = Flask(__name__)
-    # DB.init_app(app)
+    app.config['DEBUG'] = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URI')
 
     @app.route('/')
     def root():
