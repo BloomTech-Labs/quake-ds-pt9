@@ -1,6 +1,6 @@
 from decouple import config
-from flask import Flask, render_template,
-from .models import DB
+from flask import Flask, render_template
+from .models import db
 
 
 def create_app():
