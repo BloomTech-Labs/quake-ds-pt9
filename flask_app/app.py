@@ -18,11 +18,13 @@ def create_app():
     @app.route('/grabquakes', methods=['POST', 'GET'])
     def grab_quakes():
 
+        # Consider moving this to functions.py?
         def usgs_parser():
+            # Uses the month-long geojson of 4.5 mag earthquakes and above
             usgs_data = requests.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson')
 
             for entry in usgs_data.json()['features']:
-                # checks if entry already exists
+                # checks if entry already exists, then updates
                 if db.session.query(Quake.id).filter_by(id=entry['id']).scalar() is not None:
                     updated_entry = Quake.query.filter_by(id=entry['id']).first()
                     updated_entry.longitude = entry['geometry']['coordinates'][0]
@@ -35,6 +37,7 @@ def create_app():
 
                 else:
                     try:
+                        # Otherwise creates a new entry
                         quake_entry = Quake(id=entry['id'],
                         longitude=entry['geometry']['coordinates'][0],
                         latitude=entry['geometry']['coordinates'][1],
@@ -43,7 +46,8 @@ def create_app():
                         time=entry['properties']['time'])
                         db.session.add(quake_entry)
 
-                    except IntegrityError:
+                    except:
+                        # prints message with the entry id if something goes wrong
                         print(f"Oh no something failed on {entry['id']}!")
 
         usgs_parser()
@@ -72,6 +76,7 @@ def create_app():
         m.save('templates/map.html')
         return render_template('map.html', title='Map data got!')
 
+    # Remember to delete for production phase
     @app.route('/reset')
     def reset():
         db.drop_all()
