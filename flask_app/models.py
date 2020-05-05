@@ -13,6 +13,8 @@ class Quake(db.Model):
     longitude = db.Column(db.Float, nullable=False)
     # geometry.coordinates.1
     latitude = db.Column(db.Float, nullable=False)
+    # geometry.coordinates.2
+    depth = db.Column(db.Float, nullable=True)
     # properties.mag
     magnitude = db.Column(db.Float, nullable=False)
     # properties.place
@@ -23,10 +25,11 @@ class Quake(db.Model):
     felt = db.Column(db.Integer, nullable=True)
 
 
-    def __init__(self, id, longitude, latitude, magnitude, place, time):
+    def __init__(self, id, longitude, latitude, depths, magnitude, place, time):
         self.id = id
         self. longitude = longitude
         self.latitude = latitude
+        self.depths = depths
         self.magnitude = magnitude
         self.place = place
         self.time = time

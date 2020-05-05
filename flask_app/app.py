@@ -43,6 +43,7 @@ def create_app():
                     updated_entry = Quake.query.filter_by(id=entry['id']).first()
                     updated_entry.longitude = entry['geometry']['coordinates'][0]
                     updated_entry.latitude = entry['geometry']['coordinates'][1]
+                    updated_entry.depth = entry['geometry']['coordinates'][2]
                     updated_entry.magnitude = entry['properties']['mag']
                     updated_entry.place = entry['properties']['place']
                     updated_entry.time = entry['properties']['time']
@@ -55,14 +56,15 @@ def create_app():
                         quake_entry = Quake(id=entry['id'],
                         longitude=entry['geometry']['coordinates'][0],
                         latitude=entry['geometry']['coordinates'][1],
+                        depths=entry['geometry']['coordinates'][2],
                         magnitude=entry['properties']['mag'],
                         place=entry['properties']['place'],
                         time=entry['properties']['time'])
                         db.session.add(quake_entry)
 
-                    except:
+                    except Exception as e:
                         # prints message with the entry id if something goes wrong
-                        print(f"Oh no something failed on {entry['id']}!")
+                        print(f"Oh no {e} on {entry['id']}!")
 
         usgs_parser()
         db.session.commit()
