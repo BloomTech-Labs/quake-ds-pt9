@@ -18,8 +18,22 @@ def create_app():
     @app.route('/grabquakes', methods=['POST', 'GET'])
     def grab_quakes():
 
-        # Consider moving this to functions.py?
+        # This works best if it stays in this file, but consider moving to functions?
         def usgs_parser():
+            '''
+            Expects the database to be passed in, as well as a link to geojson data.
+            If none is provided, it will default to the USGS' monthly geojson data
+            for earthquakes of magnitude 4.5 and above.
+
+            Database tables need to have:
+            id (str),
+            latitude (float),
+            longitude (float),
+            magnitude (float),
+            place (str),
+            time (int),
+            felt (int, optional)
+            '''
             # Uses the month-long geojson of 4.5 mag earthquakes and above
             usgs_data = requests.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson')
 
