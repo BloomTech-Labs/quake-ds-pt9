@@ -35,7 +35,7 @@ def create_app():
             felt (int, optional)
             '''
             # Uses the month-long geojson of 4.5 mag earthquakes and above
-            usgs_data = requests.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson')
+            usgs_data = requests.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson')
 
             for entry in usgs_data.json()['features']:
                 # checks if entry already exists, then updates
