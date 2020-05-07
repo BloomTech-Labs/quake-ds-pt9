@@ -1,0 +1,13 @@
+If successful a list of IDs should be below:
+
+{% set count = [0] %}
+<ul>
+{% for quake in quakes %}
+    <li>
+        {{ quake.id }}
+    </li>
+    {% if loop.last %}
+        {{loop.length}} earthquakes added to database
+    {% endif %}
+{% endfor %}
+</ul>
