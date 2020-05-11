@@ -100,11 +100,13 @@ def create_app():
         # Select all data in postgres table
         # THIS IS STILL BROKEN... working on it! 
         all_data = Quake.query.all()
-        print(all_data[:10])
-        print(type(Quake))
+        output = list(all_data)
+
+        # Debugging line
+        print(output)
 
         # Return data
-        return jsonify(results=all_data)
+        return jsonify(results=output)
 
     # Remember to delete for production phase
     @app.route('/reset')
