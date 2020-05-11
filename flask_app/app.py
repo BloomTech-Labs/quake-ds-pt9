@@ -1,10 +1,10 @@
 from decouple import config
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_migrate import Migrate
 import folium
-from .models import db, Quake
 import requests
-
+from .models import db, Quake
+import pandas as pd
 
 def create_app():
     """Create and configure an instance of the Flask application"""
@@ -78,6 +78,8 @@ def create_app():
 
     @app.route('/map', methods=['POST', 'GET'])
     def map():
+        
+        # Defines Folium map based on geojson data
         usgs_month_data = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson'
         m = folium.Map(
             location=[-59.1759, -11.6016],
@@ -91,6 +93,18 @@ def create_app():
             ).add_to(m)
         m.save('templates/map.html')
         return render_template('map.html', title='Map data got!')
+
+    @app.route('/getquakes', methods=['POST', 'GET'])
+    def send_data():
+        
+        # Select all data in postgres table
+        # THIS IS STILL BROKEN... working on it! 
+        all_data = Quake.query.all()
+        print(all_data[:10])
+        print(type(Quake))
+
+        # Return data
+        return jsonify(results=all_data)
 
     # Remember to delete for production phase
     @app.route('/reset')
