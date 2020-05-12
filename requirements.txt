@@ -1,6 +1,7 @@
 Flask
 Flask-Migrate
 Flask-SQLAlchemy
+flask-marshmallow
 folium
 gunicorn
 geocoder
