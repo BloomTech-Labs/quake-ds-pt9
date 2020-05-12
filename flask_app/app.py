@@ -1,5 +1,6 @@
 from decouple import config
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS, cross_origin
 from flask_migrate import Migrate
 from .models import db, Quake
 from flask_marshmallow import Marshmallow
@@ -11,7 +12,9 @@ import requests
 def create_app():
     """Create and configure an instance of the Flask application"""
     app = Flask(__name__)
+    cors = CORS(app)
     ma = Marshmallow(app)
+    app.config['CORS_HEADERS'] = 'Content-Type'
     app.config['DEBUG'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URI')
@@ -104,6 +107,7 @@ def create_app():
         return render_template('map.html', title='Map data got!')
 
     @app.route('/getquakes', methods=['POST', 'GET'])
+    @cross_origin()
     def getquakes():
         quakes = db.session.query(Quake).all()
         result = quakes_schema.dump(quakes)
