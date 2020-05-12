@@ -1,14 +1,17 @@
 from decouple import config
 from flask import Flask, render_template, request, jsonify
 from flask_migrate import Migrate
+from .models import db, Quake
+from flask_marshmallow import Marshmallow
+import pandas as pd
 import folium
 import requests
-from .models import db, Quake
-import pandas as pd
+
 
 def create_app():
     """Create and configure an instance of the Flask application"""
     app = Flask(__name__)
+    ma = Marshmallow(app)
     app.config['DEBUG'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URI')
@@ -94,19 +97,18 @@ def create_app():
         m.save('templates/map.html')
         return render_template('map.html', title='Map data got!')
 
+    class QuakeSchema(ma.Schema):
+        class Meta:
+            fields = ('id','longitude','latitude','depth','magnitude', 'place', 'time', 'felt')
+
+    quake_schema = QuakeSchema()
+    quakes_schema = QuakeSchema(many=True)
+
     @app.route('/getquakes', methods=['POST', 'GET'])
-    def send_data():
-        
-        # Select all data in postgres table
-        # THIS IS STILL BROKEN... working on it! 
-        all_data = Quake.query.all()
-        output = list(all_data)
-
-        # Debugging line
-        print(output)
-
-        # Return data
-        return jsonify(results=output)
+    def getquakes():
+        quakes = db.session.query(Quake).all()
+        result = quakes_schema.dump(quakes)
+        return jsonify(result)
 
     # Remember to delete for production phase
     @app.route('/reset')
