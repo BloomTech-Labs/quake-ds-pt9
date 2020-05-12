@@ -15,6 +15,12 @@ def create_app():
     app.config['DEBUG'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URI')
+    class QuakeSchema(ma.Schema):
+        class Meta:
+            fields = ('id','longitude','latitude','depth','magnitude', 'place', 'time', 'felt')
+
+    quake_schema = QuakeSchema()
+    quakes_schema = QuakeSchema(many=True)
     db.init_app(app)
     #migrate = Migrate(app, db)
 
@@ -81,7 +87,7 @@ def create_app():
 
     @app.route('/map', methods=['POST', 'GET'])
     def map():
-        
+
         # Defines Folium map based on geojson data
         usgs_month_data = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson'
         m = folium.Map(
@@ -96,13 +102,6 @@ def create_app():
             ).add_to(m)
         m.save('templates/map.html')
         return render_template('map.html', title='Map data got!')
-
-    class QuakeSchema(ma.Schema):
-        class Meta:
-            fields = ('id','longitude','latitude','depth','magnitude', 'place', 'time', 'felt')
-
-    quake_schema = QuakeSchema()
-    quakes_schema = QuakeSchema(many=True)
 
     @app.route('/getquakes', methods=['POST', 'GET'])
     def getquakes():
