@@ -110,8 +110,20 @@ def create_app():
     @cross_origin()
     def getquakes():
         quakes = db.session.query(Quake).all()
-        result = quakes_schema.dump(quakes)
-        return jsonify(result)
+        # json = jsonify(quakes_schema.dump(quakes))
+        geojson = {
+            "type": "FeatureCollection",
+            "features": [
+                        {
+                            "type": "Feature",
+                            "geometry" : {
+                                "type": "Point",
+                                "coordinates": [ii["longitude"], ii["latitude"], ii["depth"]]
+                                        },
+                            "properties" : ii,
+                    } for ii in quakes_schema.dump(quakes)]
+                        }
+        return geojson
 
     # Remember to delete for production phase
     @app.route('/reset')
