@@ -121,6 +121,7 @@ def create_app():
                                 "coordinates": [ii["longitude"], ii["latitude"], ii["depth"]]
                                         },
                             "properties" : ii,
+                            "title" : f"M {ii['magnitude']} - {ii['place']}"
                     } for ii in quakes_schema.dump(quakes)]
                         }
         return geojson
