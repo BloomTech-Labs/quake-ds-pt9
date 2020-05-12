@@ -1,17 +1,26 @@
 from decouple import config
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_migrate import Migrate
-import folium
 from .models import db, Quake
+from flask_marshmallow import Marshmallow
+import pandas as pd
+import folium
 import requests
 
 
 def create_app():
     """Create and configure an instance of the Flask application"""
     app = Flask(__name__)
+    ma = Marshmallow(app)
     app.config['DEBUG'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URI')
+    class QuakeSchema(ma.Schema):
+        class Meta:
+            fields = ('id','longitude','latitude','depth','magnitude', 'place', 'time', 'felt')
+
+    quake_schema = QuakeSchema()
+    quakes_schema = QuakeSchema(many=True)
     db.init_app(app)
     #migrate = Migrate(app, db)
 
@@ -78,6 +87,8 @@ def create_app():
 
     @app.route('/map', methods=['POST', 'GET'])
     def map():
+
+        # Defines Folium map based on geojson data
         usgs_month_data = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson'
         m = folium.Map(
             location=[-59.1759, -11.6016],
@@ -91,6 +102,12 @@ def create_app():
             ).add_to(m)
         m.save('templates/map.html')
         return render_template('map.html', title='Map data got!')
+
+    @app.route('/getquakes', methods=['POST', 'GET'])
+    def getquakes():
+        quakes = db.session.query(Quake).all()
+        result = quakes_schema.dump(quakes)
+        return jsonify(result)
 
     # Remember to delete for production phase
     @app.route('/reset')
