@@ -1,6 +1,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/73be1cbdf6bd4131d763/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/quake-ds-pt9/maintainability)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/73be1cbdf6bd4131d763/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/quake-ds-pt9/test_coverage)
+
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline. Feel free to add your own flare to it.
 
 🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by.  Make sure to delete the numbers by the end of Labs.
