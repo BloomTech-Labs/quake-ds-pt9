@@ -38,9 +38,20 @@ def latlong_finder(country, postalcode):
 
     return latlong
 
-def wrangle(df):
-    """ Wrangles the data """ 
+def wrangle():
+    """ Wrangles the data 
+    Step 1: imports all the postgres data as a pandas dataframe
+    Step 2: parsing the geojson structure into distinct columns
+    Step 3: location/distance from epicenter into columns of distance, city, country
+    Step 4: filling values with no city or distances
+    Step 5: INCOMPLETE -- getting missing timezone value
+    Step 6: parsing long, lat, and depth for each event
+    Step 7: updating time to datetime format
+    """ 
 
+    quakes = db.session.query(Quake).all()
+    result = quakes_schema.dump(quakes)
+    df = pd.read_json(result)
     geo = df.copy()
 
     # Parse the city and country/state
