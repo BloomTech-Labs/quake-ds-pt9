@@ -24,6 +24,42 @@ def latlong_finder(country, postalcode):
 
     return latlong
 
+def wrangle(df):
+    """ Wrangles the data """ 
+
+    geo = df.copy()
+
+    # Parse the city and country/state
+    geo['dist_from_city'] = geo['place'].str.split('of ', expand=True)[0]
+    geo['city'] = geo['place'].str.split('of ', expand=True)[1]
+    geo['city'] = geo['city'].str.split(', ', expand=True)[0]
+    geo['country_state'] = geo['place'].str.split(', ', expand=True)[1]
+
+    # Accounting for values without distances or cities in raw data
+    geo['city'].fillna(geo['place'], inplace=True)
+    geo['country_state'].fillna(geo['place'], inplace=True)
+
+    # Working on this section currently
+    # Getting value for any missing timezone ('tz') entries
+    # tf = TimezoneFinder()
+    # lat, lng = geo.loc[geo['tz'].isna(), 'lat'].item(), geo.loc[geo['tz'].isna(), 'long'].item()
+    # tf.timezone_at(lng=lng, lat=lat)
+    
+    # Parse the latitude, longitude, and the depth for each seismic event
+    geo['long'] = [geo['geometry'][i].x for i in range(len(geo['geometry']))]
+    geo['lat'] = [geo['geometry'][i].y for i in range(len(geo['geometry']))]
+    geo['longlat'] = list(zip(geo['long'], geo['lat']))
+    geo['depth'] = [geo['geometry'][i].z for i in range(len(geo['geometry']))]
+
+    # Convert time columns to datetime format
+    geo['time_dt'] = [datetime.datetime.fromtimestamp(
+        i / 1000) for i in geo['time']]
+    geo['updated_dt'] = [datetime.datetime.fromtimestamp(
+        i / 1000) for i in geo['updated']]
+
+    # Return wrangled dataframe 
+    return geo
+
 # This is still a work in progress
 def find_emergency_site(postalcode):
     '''
