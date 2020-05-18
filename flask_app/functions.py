@@ -2,6 +2,20 @@ from bs4 import BeautifulSoup
 from googlesearch import search
 import pgeocode
 import requests
+import plotly as py
+import sklearn
+import plotly.offline as offline
+import plotly.graph_objs as go
+import geopandas as gpd
+import datetime
+import re
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from timezonefinder import TimezoneFinder
+from datetime import datetime, timedelta
+from pytz import timezone
+import pytz
 
 def latlong_finder(country, postalcode):
     '''
@@ -52,9 +66,9 @@ def wrangle(df):
     geo['depth'] = [geo['geometry'][i].z for i in range(len(geo['geometry']))]
 
     # Convert time columns to datetime format
-    geo['time_dt'] = [datetime.datetime.fromtimestamp(
+    geo['time_dt'] = [datetime.fromtimestamp(
         i / 1000) for i in geo['time']]
-    geo['updated_dt'] = [datetime.datetime.fromtimestamp(
+    geo['updated_dt'] = [datetime.fromtimestamp(
         i / 1000) for i in geo['updated']]
 
     # Return wrangled dataframe 
