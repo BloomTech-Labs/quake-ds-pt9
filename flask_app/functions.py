@@ -49,6 +49,7 @@ def wrangle():
     Step 7: updating time to datetime format
     """ 
 
+    # Connecting to the postgres database and dumping to json then pandas 
     quakes = db.session.query(Quake).all()
     result = quakes_schema.dump(quakes)
     df = pd.read_json(result)
@@ -70,7 +71,7 @@ def wrangle():
     # lat, lng = geo.loc[geo['tz'].isna(), 'lat'].item(), geo.loc[geo['tz'].isna(), 'long'].item()
     # tf.timezone_at(lng=lng, lat=lat)
     
-    # Parse the latitude, longitude, and the depth for each seismic event
+    # Parse the longitude, latitude, and the depth for each seismic event
     geo['long'] = [geo['geometry'][i].x for i in range(len(geo['geometry']))]
     geo['lat'] = [geo['geometry'][i].y for i in range(len(geo['geometry']))]
     geo['longlat'] = list(zip(geo['long'], geo['lat']))
