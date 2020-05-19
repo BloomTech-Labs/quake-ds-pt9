@@ -1,4 +1,5 @@
 from decouple import config
+from functions import get_emergency_info
 from flask import Flask, render_template, request
 from flask_migrate import Migrate
 import folium
@@ -98,5 +99,10 @@ def create_app():
         db.drop_all()
         db.create_all()
         return render_template('base.html', title='Reset database!')
+
+    @app.route('/emergency')
+    def emergency():
+        
+
 
     return app
