@@ -47,10 +47,7 @@ def get_emergency_info(site='https://www.ready.gov/earthquakes'):
     soup = BeautifulSoup(r, 'html.parser')
 
     # Info: before earthquake
-    before_quake = soup.find_all('div', class_="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")
+    info = soup.find_all('div', class_="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")
 
-    emergency_info = {}
+    return info
 
-    emergency_info['before_quake'] = before_quake
-
-    return before_quake
