@@ -104,5 +104,7 @@ def create_app():
     def emergency():
         info = get_emergency_info()
 
+        return info
+
 
     return app
