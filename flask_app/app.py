@@ -102,7 +102,7 @@ def create_app():
 
     @app.route('/emergency')
     def emergency():
-        
+        info = get_emergency_info()
 
 
     return app
