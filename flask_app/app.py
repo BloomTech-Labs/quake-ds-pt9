@@ -126,11 +126,4 @@ def create_app():
                         }
         return geojson
 
-    # Remember to delete for production phase
-    @app.route('/reset')
-    def reset():
-        db.drop_all()
-        db.create_all()
-        return render_template('base.html', title='Reset database!')
-
     return app
