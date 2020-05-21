@@ -1,10 +1,13 @@
+import requests
 from decouple import config
-from functions import get_emergency_info
+
 from flask import Flask, render_template, request
 from flask_migrate import Migrate
 import folium
+
+from functions import EmergencyLookup
 from .models import db, Quake
-import requests
+
 
 
 def create_app():
@@ -102,9 +105,9 @@ def create_app():
 
     @app.route('/emergency')
     def emergency():
-        info = get_emergency_info()
-
-        return info
+        em = EmergencyLookup('San Francisco')
+        content = em.find_site()
+        return content
 
 
     return app
