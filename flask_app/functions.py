@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from gensim.summarization import summarize
 from googlesearch import search
 import pgeocode
 import requests
@@ -25,29 +26,42 @@ def latlong_finder(country, postalcode):
     return latlong
 
 # This is still a work in progress
-def find_emergency_site(postalcode):
-    '''
-    This returns the first .gov site in a google search for that zip code's
-    earthquake emergency sites.
-    '''
-    site = []
-    for ii in search(f'{postalcode} earthquake emergency', num=10, start=0, stop=10):
-        if '.gov' in ii:
-            site.append(ii)
 
-    return site[0]
+class EmergencyLookup:
 
-# This is still a work in progress, and builds off of find_emergency_site
-def get_emergency_info(site='https://www.ready.gov/earthquakes'):
-    '''
+    def __init__(self, city):
+        self.city = city
 
-    '''
-    r = requests.get(site).text
-    # BS4 logic
-    soup = BeautifulSoup(r, 'html.parser')
+    def find_site(self):
+        '''
+        This returns the first .gov or .org site in a google search for that zip code's
+        earthquake emergency sites.
+        '''
+        self.site = []
+        for ii in search(f'{self.city} earthquake emergency', num=10, start=0, stop=10):
+            if ('.gov' in ii) or ('.org' in ii):
+                self.site.append(ii)
 
-    # Info: before earthquake
-    info = soup.find_all('div', class_="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")
+        return self.site[0]
 
-    return info
+    # This is still a work in progress, and builds off of find_emergency_site
+    def scrape_site(self):
+        '''
+
+        '''
+        r = requests.get(self.site[0]).text
+        # BS4 logic
+        soup = BeautifulSoup(r, 'html.parser')
+
+        if 'earthquake' in soup.get_text():
+            #TODO: scrape/summarize appropriately
+            body = soup.find('body').text
+            content = summarize(body, word_count=200)
+            return content + f'\n\nSummarized from {self.site[0]}'
+        else:
+            # Scraping the default: ready.gov's earthquakes page
+            info = soup.find_all('div', class_="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")
+            content = str(info[1:]).replace(',', '').replace('[', '').replace(']', '')
+
+            return content
 
