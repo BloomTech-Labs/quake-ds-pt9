@@ -103,11 +103,11 @@ def create_app():
         db.create_all()
         return render_template('base.html', title='Reset database!')
 
-    @app.route('/emergency')
-    def emergency():
-        em = EmergencyLookup('San Francisco')
-        content = em.find_site()
+    @app.route('/emergency/<city>')
+    def emergency(city):
+        em = EmergencyLookup(city)
+        em.find_site()
+        content = em.scrape_site()
         return content
-
 
     return app
