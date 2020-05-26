@@ -76,12 +76,9 @@ def create_app():
                         db.session.add(quake_entry)
 
 
-                    except exc.DBAPIError as ex:
-                        if ex.orig.pgcode == '23502':
-                            print(f"{entry['id']} row could not be uploaded, and has been skipped")
-                            continue
-                        else:
-                            print(f"{entry['id']} row could not be uploaded, needs further checking")
+                    except exc.IntegrityError:
+                        print(f"{entry['id']} row could not be uploaded, and has been skipped")
+                        continue
 
                     except Exception as e:
                         # prints message with the entry id if something goes wrong
