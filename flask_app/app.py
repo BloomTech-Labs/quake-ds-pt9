@@ -78,8 +78,8 @@ def create_app():
                         if e == psycopg2.errors.NotNullViolation:
                             pass
                         else:
-                        # prints message with the entry id if something goes wrong
-                        print(f"Oh no {e} on {entry['id']}!")
+                            # prints message with the entry id if something goes wrong
+                            print(f"Oh no {e} on {entry['id']}!")
 
         usgs_parser()
         db.session.commit()
