@@ -1,11 +1,12 @@
 from decouple import config
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
-from flask_migrate import Migrate
-from .models import db, Quake
 from flask_marshmallow import Marshmallow
-import pandas as pd
+from flask_migrate import Migrate
 import folium
+from .models import db, Quake
+import pandas as pd
+from sqlalchemy import exc
 import requests
 
 
@@ -74,12 +75,18 @@ def create_app():
                         time=entry['properties']['time'])
                         db.session.add(quake_entry)
 
-                    except Exception as e:
-                        if e == psycopg2.errors.NotNullViolation:
+
+                    except exc.DBAPIError as ex:
+                        if ex.orig.pgcode == '23502':
+                            print(f'{entry['id']} row could not be uploaded, and has been skipped')
                             pass
                         else:
-                            # prints message with the entry id if something goes wrong
-                            print(f"Oh no {e} on {entry['id']}!")
+                            print(f'{entry['id']} row could not be uploaded, needs further checking')
+
+                    except Exception as e:
+                        # prints message with the entry id if something goes wrong
+                        print(f"Oh no {e} on {entry['id']}!")
+
 
         usgs_parser()
         db.session.commit()
@@ -87,7 +94,7 @@ def create_app():
         return render_template('grabquakes.html', title='Home', quakes=Quake.query.all())
 
 
-    @app.route('/')
+ss    @app.route('/')
     def root():
         return render_template('base.html', title='Epicentral')
 
