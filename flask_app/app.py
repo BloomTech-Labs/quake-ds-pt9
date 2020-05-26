@@ -74,12 +74,10 @@ def create_app():
                         time=entry['properties']['time'])
                         db.session.add(quake_entry)
 
-                    except exc.DBAPIError as ex:
-                        #NotNullViolation error
-                        if ex.orig.pgcode == '23502':
-                            continue
-
                     except Exception as e:
+                        if e == psycopg2.errors.NotNullViolation:
+                            pass
+                        else:
                         # prints message with the entry id if something goes wrong
                         print(f"Oh no {e} on {entry['id']}!")
 
