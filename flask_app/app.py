@@ -79,7 +79,7 @@ def create_app():
                     except exc.DBAPIError as ex:
                         if ex.orig.pgcode == '23502':
                             print(f"{entry['id']} row could not be uploaded, and has been skipped")
-                            pass
+                            continue
                         else:
                             print(f"{entry['id']} row could not be uploaded, needs further checking")
 
