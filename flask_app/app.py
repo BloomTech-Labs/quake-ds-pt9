@@ -63,11 +63,18 @@ def create_app():
                             updated_entry.magnitude = 0
                         else:
                             updated_entry.magnitude = entry['properties']['mag']
-                            
+
                         updated_entry.place = entry['properties']['place']
                         updated_entry.time = entry['properties']['time']
                         updated_entry.felt = entry['properties']['felt']
                         db.session.commit()
+
+                    except exc.DBAPIError as ex:
+                        if ex.orig.pgcode == '23502':
+                            print("Data could not be uploaded to sql_table: " + ex.orig.diag.message_primary)
+                            continue
+                        else:
+                            raise
 
                     except Exception as e:
                         # prints message with the entry id if something goes wrong
@@ -86,11 +93,12 @@ def create_app():
                         time=entry['properties']['time'])
                         db.session.add(quake_entry)
 
-                        """
-                    except exc.IntegrityError:
-                        print(f"{entry['id']} row could not be uploaded, and has been skipped")
-                        continue
-                        """
+                    except exc.DBAPIError as ex:
+                        if ex.orig.pgcode == '23502':
+                            print("Data could not be uploaded to sql_table: " + ex.orig.diag.message_primary)
+                            continue
+                        else:
+                            raise
 
                     except Exception as e:
                         # prints message with the entry id if something goes wrong
