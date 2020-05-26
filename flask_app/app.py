@@ -75,14 +75,16 @@ def create_app():
                         time=entry['properties']['time'])
                         db.session.add(quake_entry)
 
-
+                        """
                     except exc.IntegrityError:
                         print(f"{entry['id']} row could not be uploaded, and has been skipped")
                         continue
+                        """
 
                     except Exception as e:
                         # prints message with the entry id if something goes wrong
                         print(f"Oh no {e} on {entry['id']}!")
+                        continue
 
 
         usgs_parser()
