@@ -58,7 +58,12 @@ def create_app():
                         updated_entry.longitude = entry['geometry']['coordinates'][0]
                         updated_entry.latitude = entry['geometry']['coordinates'][1]
                         updated_entry.depth = entry['geometry']['coordinates'][2]
-                        updated_entry.magnitude = entry['properties']['mag']
+
+                        if entry['properties']['mag'] == None:
+                            updated_entry.magnitude = 0
+                        else:
+                            updated_entry.magnitude = entry['properties']['mag']
+                            
                         updated_entry.place = entry['properties']['place']
                         updated_entry.time = entry['properties']['time']
                         updated_entry.felt = entry['properties']['felt']
