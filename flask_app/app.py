@@ -94,7 +94,7 @@ def create_app():
         return render_template('grabquakes.html', title='Home', quakes=Quake.query.all())
 
 
-ss    @app.route('/')
+    @app.route('/')
     def root():
         return render_template('base.html', title='Epicentral')
 
