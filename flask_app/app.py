@@ -60,7 +60,7 @@ def create_app():
                         updated_entry.depth = entry['geometry']['coordinates'][2]
 
                         if entry['properties']['mag'] == None:
-                            updated_entry.magnitude = 0
+                            updated_entry.magnitude = 0.0
                         else:
                             updated_entry.magnitude = entry['properties']['mag']
 
@@ -84,13 +84,24 @@ def create_app():
                 else:
                     try:
                         # Otherwise creates a new entry
-                        quake_entry = Quake(id=entry['id'],
-                        longitude=entry['geometry']['coordinates'][0],
-                        latitude=entry['geometry']['coordinates'][1],
-                        depths=entry['geometry']['coordinates'][2],
-                        magnitude=entry['properties']['mag'],
-                        place=entry['properties']['place'],
-                        time=entry['properties']['time'])
+                        if entry['properties']['mag'] == None:
+                            quake_entry = Quake(id=entry['id'],
+                            longitude=entry['geometry']['coordinates'][0],
+                            latitude=entry['geometry']['coordinates'][1],
+                            depths=entry['geometry']['coordinates'][2],
+                            magnitude=0.0,
+                            place=entry['properties']['place'],
+                            time=entry['properties']['time'])
+
+                        else:
+                            quake_entry = Quake(id=entry['id'],
+                            longitude=entry['geometry']['coordinates'][0],
+                            latitude=entry['geometry']['coordinates'][1],
+                            depths=entry['geometry']['coordinates'][2],
+                            magnitude=entry['properties']['mag'],
+                            place=entry['properties']['place'],
+                            time=entry['properties']['time'])
+
                         db.session.add(quake_entry)
 
                     except exc.DBAPIError as ex:
