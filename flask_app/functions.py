@@ -44,7 +44,7 @@ def wrangle():
     Step 2: parsing the geojson structure into distinct columns
     Step 3: location/distance from epicenter into columns of distance, city, country
     Step 4: filling values with no city or distances
-    Step 5: INCOMPLETE -- getting missing timezone value
+    Step 5: --  INCOMPLETE -- getting missing timezone value
     Step 6: parsing long, lat, and depth for each event
     Step 7: updating time to datetime format
     """ 
@@ -65,7 +65,7 @@ def wrangle():
     geo['city'].fillna(geo['place'], inplace=True)
     geo['country_state'].fillna(geo['place'], inplace=True)
 
-    # Working on this section currently
+    # # Working on this section currently
     # Getting value for any missing timezone ('tz') entries
     # tf = TimezoneFinder()
     # lat, lng = geo.loc[geo['tz'].isna(), 'lat'].item(), geo.loc[geo['tz'].isna(), 'long'].item()
