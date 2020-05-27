@@ -6,19 +6,18 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask-marshmallow = "*"
-folium = "*"
-gunicorn = "*"
-geocoder = "*"
-geopandas = "*"
 numpy = "*"
 pandas = "*"
-psycopg2 = "*"
-python-decouple = "*"
+matplotlib = "*"
+seaborn = "*"
 scikit-learn = "*"
-Flask = "*"
-Flask-Migrate = "*"
-Flask-SQLAlchemy = "*"
+flask-sqlalchemy = "*"
+requests = "*"
+beautifulsoup4 = "*"
+pytz = "*"
+flask-marshmallow = "*"
+ipykernel = "*"
+robobrowser = "*"
 
 [requires]
 python_version = "3.7"
