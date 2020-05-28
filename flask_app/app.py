@@ -53,33 +53,31 @@ def create_app():
             for entry in usgs_data.json()['features']:
                 # checks if entry already exists, then updates
                 if db.session.query(Quake.id).filter_by(id=entry['id']).scalar() is not None:
-                    try:
-                        updated_entry = Quake.query.filter_by(id=entry['id']).first()
-                        updated_entry.longitude = entry['geometry']['coordinates'][0]
-                        updated_entry.latitude = entry['geometry']['coordinates'][1]
-                        updated_entry.depth = entry['geometry']['coordinates'][2]
-
-                        if entry['properties']['mag'] == None:
-                            updated_entry.magnitude = 0.0
-                        else:
+                    if entry['properties']['mag'] == None:
+                            pass
+                    else: 
+                        try:
+                            updated_entry = Quake.query.filter_by(id=entry['id']).first()
+                            updated_entry.longitude = entry['geometry']['coordinates'][0]
+                            updated_entry.latitude = entry['geometry']['coordinates'][1]
+                            updated_entry.depth = entry['geometry']['coordinates'][2]
                             updated_entry.magnitude = entry['properties']['mag']
+                            updated_entry.place = entry['properties']['place']
+                            updated_entry.time = entry['properties']['time']
+                            updated_entry.felt = entry['properties']['felt']
+                            db.session.commit()
 
-                        updated_entry.place = entry['properties']['place']
-                        updated_entry.time = entry['properties']['time']
-                        updated_entry.felt = entry['properties']['felt']
-                        db.session.commit()
+                        except exc.DBAPIError as ex:
+                            if ex.orig.pgcode == '23502':
+                                print("Data could not be uploaded to sql_table: " + ex.orig.diag.message_primary)
+                                continue
+                            else:
+                                raise
 
-                    except exc.DBAPIError as ex:
-                        if ex.orig.pgcode == '23502':
-                            print("Data could not be uploaded to sql_table: " + ex.orig.diag.message_primary)
+                        except Exception as e:
+                            # prints message with the entry id if something goes wrong
+                            print(f"Oh no {e} on {entry['id']}! This row has been skipped")
                             continue
-                        else:
-                            raise
-
-                    except Exception as e:
-                        # prints message with the entry id if something goes wrong
-                        print(f"Oh no {e} on {entry['id']}! This row has been skipped")
-                        continue
 
                 else:
                     try:

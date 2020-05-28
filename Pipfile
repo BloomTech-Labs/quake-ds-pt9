@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask-marshmallow = "*"
+folium = "*"
+marshmallow-sqlalchemy = "*"
+numpy = "*"
+pandas = "*"
+psycopg2 = "*"
+scikit-learn = "*"
+Flask = "*"
+Flask-Cors = "*"
+Flask-Migrate = "*"
+Flask-SQLAlchemy = "*"
+python-decouple = "*"
+
+[requires]
+python_version = "3.7"
