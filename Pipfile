@@ -13,6 +13,8 @@ flask-sqlalchemy = "*"
 python-decouple = "*"
 flask-migrate = "*"
 pgeocode = "*"
+gensim = "*"
+folium = "*"
 
 [requires]
 python_version = "3.7"
