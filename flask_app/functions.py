@@ -57,12 +57,12 @@ class EmergencyLookup:
             #Scrape and summarize website
             body = soup.find('body').text
             content = summarize(body, word_count=200)
-            self.default == False
-            return content + f'\n Summarized from {self.site[0]}'
+            self.default = False
+            return content + f'\nSummarized from {self.site[0]}'
         else:
             # Scraping the default: ready.gov's earthquakes page
             info = soup.find_all('div', class_="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")
             content = str(info[1:]).replace(',', '').replace('[', '').replace(']', '')
-            self.default == True
+            self.default = True
             return content
 
