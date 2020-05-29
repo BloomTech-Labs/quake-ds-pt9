@@ -49,6 +49,7 @@ def get_emergency_info(site='https://www.ready.gov/earthquakes'):
 
 
 def time_parser(time_arg):
+    """Filters time period based on Unix epoch time """
     if time_arg == 'w':
         return 604800
     elif time_arg == '2w':
