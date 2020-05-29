@@ -18,6 +18,7 @@ Flask-Cors = "*"
 Flask-Migrate = "*"
 Flask-SQLAlchemy = "*"
 python-decouple = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
