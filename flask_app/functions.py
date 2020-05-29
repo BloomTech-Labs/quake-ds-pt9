@@ -46,3 +46,15 @@ def get_emergency_info(site='https://www.ready.gov/earthquakes'):
 
 
     return text
+
+
+def time_parser(time_arg):
+    if time_arg == 'w':
+        return 604800
+    elif time_arg == '2w':
+        return 1209600
+    elif time_arg == 'm':
+        return 2629743
+    else:
+        #returns one day
+        return 86400
