@@ -4,10 +4,12 @@ from flask_cors import CORS, cross_origin
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 import folium
+from .functions import time_parser
 from .models import db, Quake
 import pandas as pd
 from sqlalchemy import exc
 import requests
+import time
 
 
 def create_app():
@@ -148,8 +150,32 @@ def create_app():
     @app.route('/getquakes', methods=['POST', 'GET'])
     @cross_origin()
     def getquakes():
-        quakes = db.session.query(Quake).all()
+        '''
+        String queries are possible, with the 'mag' and 'date' arguments allowed.
+        Expected values for 'mag' are: any float.
+        Expected values for 'date' are: w, 2w, or m.
+        These stand for 'week', '2 weeks', and 'month' respectively.
+
+        Currently all filters are returning any value in the database that is
+        greater than or equal to the filter.
+
+        String query format should be something like:
+        html://sitename.com/getquakes?mag=4.5&date=m
+        '''
+        mag = request.args.get('mag')
+        date = request.args.get('date')
+        if mag and date:
+            quakes = db.session.query(Quake).filter(Quake.magnitude >= mag).\
+                    filter(Quake.time > (time.time() - time_parser(date))).all()
+
+        elif mag and not date:
+            quakes = db.session.query(Quake).filter(Quake.magnitude >= mag).all()
+        elif date and not mag:
+            quakes = db.session.query(Quake).filter(Quake.time >= (time.time() - time_parser(date))).all()
+        else:
+            quakes = db.session.query(Quake).all()
         # json = jsonify(quakes_schema.dump(quakes))
+        # Custom-created geojson format
         geojson = {
             "type": "FeatureCollection",
             "features": [
