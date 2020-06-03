@@ -1,7 +1,7 @@
 from decouple import config
 from flask import Flask, render_template, request, jsonify
 from flask_migrate import Migrate
-from .models import db, Quake
+from models import db, Quake
 from flask_marshmallow import Marshmallow
 import pandas as pd
 import folium

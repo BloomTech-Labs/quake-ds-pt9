@@ -17,7 +17,12 @@ beautifulsoup4 = "*"
 pytz = "*"
 flask-marshmallow = "*"
 ipykernel = "*"
-robobrowser = "*"
+werkzeug = "*"
+transformers = "*"
+uszipcode = "*"
+spacy = "*"
+pandas-bokeh = "*"
+lxml = "*"
 
 [requires]
 python_version = "3.7"
