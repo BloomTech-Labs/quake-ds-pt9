@@ -5,7 +5,7 @@ from flask_cors import CORS, cross_origin
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 import folium
-from .functions import time_parser
+from .functions import time_parser, EmergencyLookup
 from .models import db, Quake
 import pandas as pd
 from sqlalchemy import exc
