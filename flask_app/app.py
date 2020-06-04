@@ -1,3 +1,4 @@
+import requests
 from decouple import config
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
@@ -188,5 +189,15 @@ def create_app():
                     } for ii in quakes_schema.dump(quakes)]
                         }
         return geojson
+
+    @app.route('/emergency/<city>')
+    def emergency(city):
+        em = EmergencyLookup(city)
+        em.find_site()
+        content = em.scrape_site()
+        if self.default == True:
+            return render_template('emergency_default.html')
+        else:
+            return render_template('emergency.html', content=content)
 
     return app
