@@ -8,12 +8,6 @@ verify_ssl = true
 [packages]
 bs4 = "*"
 flask-marshmallow = "*"
-folium = "*"
-marshmallow-sqlalchemy = "*"
-numpy = "*"
-pandas = "*"
-psycopg2 = "*"
-scikit-learn = "*"
 Flask = "*"
 Flask-Cors = "*"
 Flask-Migrate = "*"
