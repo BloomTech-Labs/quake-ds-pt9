@@ -18,9 +18,13 @@ Flask = "*"
 Flask-Cors = "*"
 Flask-Migrate = "*"
 Flask-SQLAlchemy = "*"
+gensim = "*"
+google = "*"
 gunicorn = "*"
+pgeocode = "*"
 python-decouple = "*"
 python-dotenv = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
