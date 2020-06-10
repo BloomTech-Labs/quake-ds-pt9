@@ -58,7 +58,7 @@ def create_app():
                 if db.session.query(Quake.id).filter_by(id=entry['id']).scalar() is not None:
                     if entry['properties']['mag'] == None:
                             pass
-                    else: 
+                    else:
                         try:
                             updated_entry = Quake.query.filter_by(id=entry['id']).first()
                             updated_entry.longitude = entry['geometry']['coordinates'][0]
@@ -164,13 +164,13 @@ def create_app():
         mag = request.args.get('mag')
         date = request.args.get('date')
         if mag and date:
-            quakes = db.session.query(Quake).filter(Quake.magnitude >= mag).\
-                    filter(Quake.time > (time.time() - time_parser(date))).all()
+            print((time.time() - time_parser(date)))
+            quakes = db.session.query(Quake).filter(Quake.time > (time.time() - time_parser(date)) * 1000).filter(Quake.magnitude >= mag).all()
 
         elif mag and not date:
             quakes = db.session.query(Quake).filter(Quake.magnitude >= mag).all()
         elif date and not mag:
-            quakes = db.session.query(Quake).filter(Quake.time >= (time.time() - time_parser(date))).all()
+            quakes = db.session.query(Quake).filter(Quake.time >= (time.time() - time_parser(date)) * 1000).all()
         else:
             quakes = db.session.query(Quake).all()
         # json = jsonify(quakes_schema.dump(quakes))
