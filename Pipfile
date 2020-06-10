@@ -19,6 +19,9 @@ pgeocode = "*"
 python-decouple = "*"
 python-dotenv = "*"
 requests = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
+pyodbc = "*"
 
 [requires]
 python_version = "3.7"
