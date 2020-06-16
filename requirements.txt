@@ -1,0 +1,11 @@
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+folium
+geocoder
+geopandas
+gunicorn
+numpy
+pandas
+python-decouple
+scikit-learn
