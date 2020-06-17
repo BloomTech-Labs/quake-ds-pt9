@@ -1,6 +1,6 @@
 import requests
 from decouple import config
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 from flask_cors import CORS, cross_origin
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
@@ -194,10 +194,10 @@ def create_app():
     def emergency(city):
         em = EmergencyLookup(city)
         em.find_site()
-        content = em.scrape_site()
+        content, link = em.scrape_site()
         if em.default == True:
             return render_template('emergency_default.html')
         else:
-            return render_template('emergency.html', content=content)
+            return render_template('emergency.html', content=content, link=link)
 
     return app
