@@ -106,7 +106,6 @@ class EmergencyLookup:
 
         return self.site[0]
 
-    # This is still a work in progress, and builds off of find_emergency_site
     def scrape_site(self):
         '''
 
