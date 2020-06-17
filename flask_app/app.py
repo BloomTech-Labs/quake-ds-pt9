@@ -1,6 +1,6 @@
 import requests
 from decouple import config
-from flask import Flask, render_template, request, jsonify, url_for
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
