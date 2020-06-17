@@ -1,11 +1,13 @@
 Flask
 Flask-Migrate
 Flask-SQLAlchemy
+flask-marshmallow
 folium
+gunicorn
 geocoder
 geopandas
-gunicorn
 numpy
 pandas
+psycopg2
 python-decouple
 scikit-learn
