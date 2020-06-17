@@ -106,7 +106,6 @@ class EmergencyLookup:
 
         return self.site[0]
 
-    # This is still a work in progress, and builds off of find_emergency_site
     def scrape_site(self):
         '''
 
@@ -120,7 +119,7 @@ class EmergencyLookup:
             body = soup.find('body').text
             content = summarize(body, word_count=200)
             self.default = False
-            return content + f'\nSummarized from {self.site[0]}'
+            return content + '\nSummarized from: ', self.site[0]
         else:
             # Scraping the default: ready.gov's earthquakes page
             info = soup.find_all('div', class_="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item")

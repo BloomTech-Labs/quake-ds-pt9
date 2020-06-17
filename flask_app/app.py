@@ -194,10 +194,10 @@ def create_app():
     def emergency(city):
         em = EmergencyLookup(city)
         em.find_site()
-        content = em.scrape_site()
+        content, link = em.scrape_site()
         if em.default == True:
             return render_template('emergency_default.html')
         else:
-            return render_template('emergency.html', content=content)
+            return render_template('emergency.html', content=content, link=link)
 
     return app
