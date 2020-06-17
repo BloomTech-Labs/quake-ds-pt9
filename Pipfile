@@ -6,19 +6,19 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+bs4 = "*"
 flask-marshmallow = "*"
-folium = "*"
-marshmallow-sqlalchemy = "*"
-numpy = "*"
-pandas = "*"
-psycopg2 = "*"
-scikit-learn = "*"
 Flask = "*"
 Flask-Cors = "*"
 Flask-Migrate = "*"
 Flask-SQLAlchemy = "*"
+gensim = "*"
+google = "*"
+gunicorn = "*"
+pgeocode = "*"
 python-decouple = "*"
 python-dotenv = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

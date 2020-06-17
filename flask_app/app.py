@@ -5,7 +5,7 @@ from flask_cors import CORS, cross_origin
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 import folium
-from .functions import time_parser
+from .functions import time_parser, EmergencyLookup
 from .models import db, Quake
 import pandas as pd
 from sqlalchemy import exc
@@ -58,7 +58,7 @@ def create_app():
                 if db.session.query(Quake.id).filter_by(id=entry['id']).scalar() is not None:
                     if entry['properties']['mag'] == None:
                             pass
-                    else: 
+                    else:
                         try:
                             updated_entry = Quake.query.filter_by(id=entry['id']).first()
                             updated_entry.longitude = entry['geometry']['coordinates'][0]
@@ -164,13 +164,13 @@ def create_app():
         mag = request.args.get('mag')
         date = request.args.get('date')
         if mag and date:
-            quakes = db.session.query(Quake).filter(Quake.magnitude >= mag).\
-                    filter(Quake.time > (time.time() - time_parser(date))).all()
+            print((time.time() - time_parser(date)))
+            quakes = db.session.query(Quake).filter(Quake.time > (time.time() - time_parser(date)) * 1000).filter(Quake.magnitude >= mag).all()
 
         elif mag and not date:
             quakes = db.session.query(Quake).filter(Quake.magnitude >= mag).all()
         elif date and not mag:
-            quakes = db.session.query(Quake).filter(Quake.time >= (time.time() - time_parser(date))).all()
+            quakes = db.session.query(Quake).filter(Quake.time >= (time.time() - time_parser(date)) * 1000).all()
         else:
             quakes = db.session.query(Quake).all()
         # json = jsonify(quakes_schema.dump(quakes))
@@ -195,7 +195,7 @@ def create_app():
         em = EmergencyLookup(city)
         em.find_site()
         content = em.scrape_site()
-        if self.default == True:
+        if em.default == True:
             return render_template('emergency_default.html')
         else:
             return render_template('emergency.html', content=content)
