@@ -13,10 +13,12 @@ import re
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from timezonefinder import TimezoneFinder
+#from timezonefinder import TimezoneFinder
 from datetime import datetime, timedelta
 from pytz import timezone
 import pytz
+
+# Remember to add commented-out imports to requirements.txt if added
 
 def latlong_finder(country, postalcode):
     '''
