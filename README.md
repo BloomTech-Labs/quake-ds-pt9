@@ -15,7 +15,7 @@ You can find the project at [Epicentral on Heroku](https://epicentral.herokuapp.
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
 |[<img src="https://avatars0.githubusercontent.com/u/37545969?s=400&u=c6b3b2110b672bd025f071825b38090d4a3eae08&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/32030231?s=460&u=79b4a80f17718ff4802beffa14816964ebe6ce86&v=4" width = "200" />](https://github.com/)                       
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
 
 
@@ -72,9 +72,14 @@ Python, flask, tensorflow, pandas, scikit-learn, numpy, geopandas, leaflet
     /grabquakes: 
        This pulls earthquakes from the USGS api and stores them in the Heroku database. This currently pulls every 24 hours from USGS's day-long geojson api and includes all earthquakes (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson).
     /map:
-       This creates a map
+       This displays a Folium map with the earthquake information in the database.
     /getquakes:
-    /emergency:
+        This returns all earthquake data by default, but can be filtered with string queries, with the 'mag' and 'date' arguments allowed.
+        Expected values for 'mag' are: any float.
+        Expected values for 'date' are: w, 2w, or m.
+        These stand for 'week', '2 weeks', and 'month' respectively.
+    /emergency/<city>:
+        This route looks up the name of the city passed into it, and returns a summarization of the city's official earthquake emergency                  preparedness-related website.
     
 
 ### How to Reproduce locally
@@ -124,6 +129,6 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/quake-be-pt9/blob/master/README.md) for details on the backend of our project.
 
-See [Front End Documentation](_link to your front end readme here_) for details on the front end of our project.
+See [Front End Documentation](https://github.com/Lambda-School-Labs/quake-fe-pt9/blob/master/README.md) for details on the front end of our project.
