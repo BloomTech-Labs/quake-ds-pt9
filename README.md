@@ -67,19 +67,31 @@ Python, flask, tensorflow, pandas, scikit-learn, numpy, geopandas, leaflet
 -   [Folium] (https://python-visualization.github.io/folium/)
 
 
-### How to connect to the data API
--- The Flask app currently has four routes that can be used by the Front End or other users to both store and access data:
-    /grabquakes: 
-       This pulls earthquakes from the USGS api and stores them in the Heroku database. This currently pulls every 24 hours from USGS's day-long geojson api and includes all earthquakes (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson).
-    /map:
-       This displays a Folium map with the earthquake information in the database.
-    /getquakes:
-        This returns all earthquake data by default, but can be filtered with string queries, with the 'mag' and 'date' arguments allowed.
-        Expected values for 'mag' are: any float.
-        Expected values for 'date' are: w, 2w, or m.
-        These stand for 'week', '2 weeks', and 'month' respectively.
-    /emergency/<city>:
-        This route looks up the name of the city passed into it, and returns a summarization of the city's official earthquake emergency                  preparedness-related website.
+### How to connect to the data API  
+
+The Flask app currently has four routes that can be used by the Front End or other users to both store and access data:  
+    /grabquakes:  
+    
+       This pulls earthquakes from the USGS api and stores them in the Heroku database. This currently pulls every 24 hours from USGS's day-long geojson api and includes all earthquakes (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson).  
+       
+    /map:  
+    
+       This displays a Folium map with the earthquake information in the database.  
+       
+    /getquakes:  
+    
+        This returns all earthquake data by default, but can be filtered with string queries, with the 'mag' and 'date' arguments allowed.  
+        
+        Expected values for 'mag' are: any float.  
+        
+        Expected values for 'date' are: w, 2w, or m.  
+        
+        These stand for 'week', '2 weeks', and 'month' respectively.  
+        
+    /emergency/<city>:  
+    
+        This route looks up the name of the city passed into it, and returns a summarization of the city's official earthquake emergency                  preparedness-related website.  
+        
     
 
 ### How to Reproduce locally
