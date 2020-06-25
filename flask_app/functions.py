@@ -134,6 +134,13 @@ class EmergencyLookup:
 
 def time_parser(time_arg):
     """Filters time period based on Unix epoch time """
+    if 'd' in time_arg:
+        try:
+            return 86400 * int(time_arg[:-1])
+        except:
+            print('Please input your query in the form of "{int}d, i.e. 17d"')
+            print('Returning data from previous 24 hours')
+            return 86400
     if time_arg == 'w':
         return 604800
     elif time_arg == '2w':
