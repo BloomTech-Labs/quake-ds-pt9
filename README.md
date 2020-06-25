@@ -3,45 +3,30 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/73be1cbdf6bd4131d763/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/quake-ds-pt9/test_coverage)
 
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline. Feel free to add your own flare to it.
 
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by.  Make sure to delete the numbers by the end of Labs.
+# Epicentral
 
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric.  Contributing to docs does NOT count as a PR to meet your weekly requirements.
+You can find the project at [Epicentral on Heroku](https://epicentral.herokuapp.com/).
 
-# 1️⃣ Title of project goes here
+## Contributors
 
-You can find the project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+|[Tally Wiesenberg](https://github.com/tallywiesenberg)||[Rob LeCheminant](https://github.com/lechemrc)                                        |[Jerimiah Willhite](https://github.com/razzlestorm)|  
 
-## 5️⃣ Contributors
+|[<img src="https://avatars0.githubusercontent.com/u/37545969?s=400&u=c6b3b2110b672bd025f071825b38090d4a3eae08&v=4" width = "200" />](https://github.com/lechemrc)                       |                      [<img src="https://avatars0.githubusercontent.com/u/32030231?s=460&u=79b4a80f17718ff4802beffa14816964ebe6ce86&v=4" width = "200" />](https://github.com/razzlestorm) 
+|[<img src="https://avatars2.githubusercontent.com/u/52666297?s=400&u=5c1d3e3d7a0b53e23ee63de81cab1af7d563678b&v=4" width = "200" />](https://github.com/tallywiesenberg)
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-
-|                                       [Tally Wiesenberg](https://github.com/tallywiesenberg)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/lechemrc)                                        |                                       [Jerimiah Willhite](https://github.com/razzlestorm)                                                                               |
-
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/37545969?s=400&u=c6b3b2110b672bd025f071825b38090d4a3eae08&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/32030231?s=460&u=79b4a80f17718ff4802beffa14816964ebe6ce86&v=4" width = "200" />](https://github.com/)                       
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/tally-wiesenberg-5a4505159/)                                         |                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/robert-lecheminant-21315b60/)                       |                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jerimiah-willhite/) |  
 
 
+:-----------------------------------------------------------------------------------------------------------: |
 
-🚫 5️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 ## Project Overview
 
 
-1️⃣ [Trello Board](https://trello.com/b/Ja41ROfX/quake)
+[Trello Board](https://trello.com/b/Ja41ROfX/quake)
 
-1️⃣ [Product Canvas](https://www.notion.so/Vision-Problem-Objectives-2a47f1d8f3e54b2db4d4c119c3e3b5fe)
+[Product Canvas](https://www.notion.so/Vision-Problem-Objectives-2a47f1d8f3e54b2db4d4c119c3e3b5fe)
 
 Earthquake data is spread out on the internet and finding up-to-date data on your location involves sifting through complicated user interfaces and technical jargon. Personal safety and earthquake/emergency resources shouldn't be this hard to find. Knowledge about earthquakes also should also be more available, so people can manage their risk appropriately.
 
@@ -49,54 +34,42 @@ Earthquake data is spread out on the internet and finding up-to-date data on you
 
 Epicentral intends to centralize Earthquake data on an accessible, easy-to-understand platform. The center of the project is a live map that reports the magnitude of recent earthquakes. Later iterations will include SMS notifications of earthquakes and predictions of aftershocks.
 
-🚫  delete if front end is not applicable to your project
-
-1️⃣ [Deployed Front End](🚫add link to deployed app here)
+[Deployed Front End](https://epicentral.herokuapp.com/)
 
 ### Tech Stack
 
-Python, flask, tensorflow, pandas, scikit-learn, numpy, geopandas, leaflet
+Python, geopandas, flask, Folium, leaflet, numpy, pandas, pytorch, scikit-learn
 
-### 2️⃣ Predictions
+### Predictions
 
-🚫 Describe your models here
+ This is scheduled for RC3
 
-### 2️⃣ Explanatory Variables
+### Explanatory Variables
 
--   Explanatory Variable 1
--   Explanatory Variable 2
--   Explanatory Variable 3
--   Explanatory Variable 4
--   Explanatory Variable 5
+-   Scheduled for RC3
 
 ### Data Sources
-🚫  Add to or delete source links as needed for your project
-
 
 -   [USGS Geojson](https://earthquake.usgs.gov/earthquakes/feed/v1.0/)
 -   [USGS Centennial Report](https://earthquake.usgs.gov/data/centennial/)
--   [LibComCat] (https://github.com/usgs/libcomcat/)
--   [Folium] (https://python-visualization.github.io/folium/)
--   [Source 5] (🚫add link to python notebook here)
+-   [Folium](https://python-visualization.github.io/folium/)
 
-### Python Notebooks
 
-🚫  Add to or delete python notebook links as needed for your project
+### How to connect to the data API  
 
-[Python Notebook 1](🚫add link to python notebook here)
-
-[Python Notebook 2](🚫add link to python notebook here)
-
-[Python Notebook 3](🚫add link to python notebook here)
-
-### 3️⃣ How to connect to the web API
-
-🚫 List directions on how to connect to the API here
-
-### 3️⃣ How to connect to the data API
-
-🚫 List directions on how to connect to the API here
-
+The Flask app currently has four routes that can be used by the Front End or other users to both store and access data:  
+  * /grabquakes:  
+     * This pulls earthquakes from the USGS api and stores them in the Heroku database. This currently pulls every 24 hours from USGS's day-long geojson api and includes all earthquakes (https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson).  
+  * /map:  
+     * This displays a Folium map with the earthquake information in the database.  
+  * /getquakes:  
+      * This returns all earthquake data by default, but can be filtered with string queries, with the 'mag' and 'date' arguments allowed.  
+      * Expected values for 'mag' are: any float.  
+      * Expected values for 'date' are: w, 2w, or m.  
+      * These stand for 'week', '2 weeks', and 'month' respectively.  
+  * /emergency/<city>:  
+      * This route looks up the name of the city passed into it, and returns a summarization of the city's official earthquake emergency                  preparedness-related website.  
+    
 ### How to Reproduce locally
 
 Run the following commands to install all necessary packages:
@@ -144,6 +117,6 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/quake-be-pt9/blob/master/README.md) for details on the backend of our project.
 
-See [Front End Documentation](_link to your front end readme here_) for details on the front end of our project.
+See [Front End Documentation](https://github.com/Lambda-School-Labs/quake-fe-pt9/blob/master/README.md) for details on the front end of our project.
