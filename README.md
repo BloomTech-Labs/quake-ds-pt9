@@ -12,7 +12,8 @@ You can find the project at [Epicentral on Heroku](https://epicentral.herokuapp.
 
 |[Tally Wiesenberg](https://github.com/tallywiesenberg)||[Rob LeCheminant](https://github.com/lechemrc)                                        |[Jerimiah Willhite](https://github.com/razzlestorm)|  
 
-|[<img src="https://avatars0.githubusercontent.com/u/37545969?s=400&u=c6b3b2110b672bd025f071825b38090d4a3eae08&v=4" width = "200" />](https://github.com/lechemrc)                       |                      [<img src="https://avatars0.githubusercontent.com/u/32030231?s=460&u=79b4a80f17718ff4802beffa14816964ebe6ce86&v=4" width = "200" />](https://github.com/razzlestorm)  
+|[<img src="https://avatars0.githubusercontent.com/u/37545969?s=400&u=c6b3b2110b672bd025f071825b38090d4a3eae08&v=4" width = "200" />](https://github.com/lechemrc)                       |                      [<img src="https://avatars0.githubusercontent.com/u/32030231?s=460&u=79b4a80f17718ff4802beffa14816964ebe6ce86&v=4" width = "200" />](https://github.com/razzlestorm) 
+|[<img src="https://avatars2.githubusercontent.com/u/52666297?s=400&u=5c1d3e3d7a0b53e23ee63de81cab1af7d563678b&v=4" width = "200" />](https://github.com/tallywiesenberg)
 
 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/tally-wiesenberg-5a4505159/)                                         |                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/robert-lecheminant-21315b60/)                       |                       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jerimiah-willhite/) |  
 
